@@ -28,6 +28,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <!-- server gets message as a chat message event. -->
     <script type="text/javascript">
+    // exposes a io global, and then connect.
       var socket = io();
       $('form').submit(function(){
         socket.emit('chat message', $('#m').val());
@@ -37,10 +38,6 @@
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       })
-    </script>
-    <!-- exposes a io global, and then connect. -->
-    <script type="text/javascript">
-      var socket = io();
     </script>
   </body>
 </html>
