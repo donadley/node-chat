@@ -20,8 +20,10 @@ io.on('connection', function(socket){
 
 });
 
+//send an event to everyone
 io.emit('some event', { for: 'everyone' });
 
+// send a message to everyone, including the sender
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
